@@ -74,6 +74,9 @@ flutter:
     - Sign up.svg
     - Home Black color.svg
     - Home Gray color.svg
+    - Block.svg
+    - batman.jpg
+    - Search.svg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

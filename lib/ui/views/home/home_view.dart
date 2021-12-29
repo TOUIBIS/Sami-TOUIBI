@@ -23,19 +23,37 @@ class HomeView extends StatelessWidget {
              onTap: model.setIndex,
              items: [
                BottomNavigationBarItem(
-                 title: Text('Home'),
+                 title: Text(''),
                    icon: SvgPicture.asset(
                      'assets/Home Black color.svg',
                    ),
                ),
                BottomNavigationBarItem(
-                   title: Text('Upload'),
+                 title: Text(''),
+                 icon: SvgPicture.asset(
+                   'assets/Block.svg',
+                 ),
+               ),
+               BottomNavigationBarItem(
+                   title: Text(''),
                    icon: Icon(
                      Icons.add_circle_outlined,
                      size: 48.r,
                      color : loginButtonColor,
                    )
-               )
+               ),
+               BottomNavigationBarItem(
+                 title: Text(''),
+                 icon: SvgPicture.asset(
+                   'assets/Block.svg',
+                 ),
+               ),
+               BottomNavigationBarItem(
+                 title: Text(''),
+                 icon: SvgPicture.asset(
+                   'assets/Block.svg',
+                 ),
+               ),
              ],
            ),
          ),
@@ -47,7 +65,7 @@ class HomeView extends StatelessWidget {
     switch (index){
       case 0:
         return Home1View();
-      case 1:
+      case 2:
         return UploadView();
       default :
         return Home1View();
