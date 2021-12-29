@@ -1,6 +1,6 @@
 import 'package:stacked/stacked.dart';
 
-class StartupViewModel extends BaseViewModel{
+class LoginViewModel extends BaseViewModel{
   final String _loginTxt = 'Log In to Account';
   String get loginTxt => _loginTxt;
 

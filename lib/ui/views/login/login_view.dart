@@ -1,20 +1,20 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:test_technique/helper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:test_technique/ui/views/startup/startup_viewmodel.dart';
+import 'package:test_technique/ui/views/login/login_viewmodel.dart';
+import 'package:test_technique/ui/views/signup/signup_view.dart';
 
-class StartupView extends StatelessWidget {
-  const StartupView({Key? key}) : super(key: key);
+class LoginView extends StatelessWidget {
+  const LoginView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
 
-    return ViewModelBuilder<StartupViewModel>.reactive(
+    return ViewModelBuilder<LoginViewModel>.reactive(
          builder: (context,model,child) => Scaffold(
              body: SingleChildScrollView(
                child: Container(
@@ -37,7 +37,10 @@ class StartupView extends StatelessWidget {
                          TextButton(
                              child: Text(model.signUp,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.sp,color:unselectedButtonColor),),
                              onPressed: (){
-
+                               Navigator.push(
+                                 context,
+                                 MaterialPageRoute(builder: (context) => SignUpView()),
+                               );
                              })
                        ],
                      ),
@@ -156,7 +159,7 @@ class StartupView extends StatelessWidget {
                ),
              )
          ),
-        viewModelBuilder:() => StartupViewModel(),
+        viewModelBuilder:() => LoginViewModel(),
     );
   }
 }
