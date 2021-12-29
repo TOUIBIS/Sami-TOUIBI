@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:test_technique/helper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:test_technique/ui/views/home/home_view.dart';
 import 'package:test_technique/ui/views/login/login_viewmodel.dart';
 import 'package:test_technique/ui/views/signup/signup_view.dart';
 
@@ -39,7 +41,7 @@ class LoginView extends StatelessWidget {
                              onPressed: (){
                                Navigator.push(
                                  context,
-                                 MaterialPageRoute(builder: (context) => SignUpView()),
+                                 CupertinoPageRoute(builder: (context) => SignUpView()),
                                );
                              })
                        ],
@@ -84,17 +86,22 @@ class LoginView extends StatelessWidget {
                      SizedBox(height: 10.h,),
 
                      TextField(
-                         obscureText: true,
+                         obscureText: model.showpwd,
                          controller: passwordController,
 
                          decoration: InputDecoration(
                            suffixIcon: Align(
                              widthFactor: 1.0,
                              heightFactor: 1.0,
-                             child: SvgPicture.asset(
-                               'assets/show.svg',
-                               width: 16.1,
-                                 height: 10.15,
+                             child: GestureDetector(
+                               onTap:(){
+                                 model.showPwd();
+                               },
+                               child: SvgPicture.asset(
+                                 'assets/show.svg',
+                                 width: 16.1,
+                                   height: 10.15,
+                               ),
                              ),
                            ),
 
@@ -129,7 +136,10 @@ class LoginView extends StatelessWidget {
                          textStyle: const TextStyle(fontSize: 20),
                        ),
                        onPressed: () {
-
+                         Navigator.push(
+                           context,
+                           CupertinoPageRoute(builder: (context) => HomeView()),
+                         );
                        },
                        child: Text(model.login,style: normalTextStyle,),
                      ),

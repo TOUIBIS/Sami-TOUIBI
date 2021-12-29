@@ -71,6 +71,7 @@ flutter:
     - Login.svg
     - show.svg
     - google.svg
+    - Sign up.svg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

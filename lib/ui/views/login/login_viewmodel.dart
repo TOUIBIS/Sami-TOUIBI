@@ -25,4 +25,16 @@ class LoginViewModel extends BaseViewModel{
   final String _loginWithGoogle = 'Log In with Google';
   String get loginWithGoogle => _loginWithGoogle;
 
+  bool _showpwd = true;
+  bool get showpwd => _showpwd;
+
+  void showPwd(){
+    if (_showpwd == true){
+      _showpwd = false;
+    }else {
+      _showpwd = true;
+    }
+    notifyListeners();
+  }
+
 }
