@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
+import 'package:test_technique/helper.dart';
 import 'package:test_technique/ui/views/home/home_viewmodel.dart';
+import 'package:test_technique/ui/views/home1/home1_view.dart';
+import 'package:test_technique/ui/views/signup/signup_view.dart';
+import 'package:test_technique/ui/views/upload/upload_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -9,42 +15,42 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
          builder: (context,model,child) => Scaffold(
-           body: Column(
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-               Center(
-                 child: Text(
-                   model.title
-                 ),
-               ),
-               ElevatedButton(
-                 style: ElevatedButton.styleFrom(
-                   primary: Colors.red, // background
-                   onPrimary: Colors.white, // foreground
-                 ),
-                 onPressed: () { },
-                 child: Text('Next view'),
-               )
-             ],
-           ),
+           body: getViewForIndex(model.currentIndex),
            bottomNavigationBar: BottomNavigationBar(
              type: BottomNavigationBarType.fixed,
-             backgroundColor: Colors.blue,
-            // currentIndex: model.currentIndex,
-             //onTap: model.setIndex,
+             backgroundColor: bottonNavBarColor,
+             currentIndex: model.currentIndex,
+             onTap: model.setIndex,
              items: [
                BottomNavigationBarItem(
-                   title: Text("Post"),
-                   icon: Icon(Icons.ten_k)
+                 title: Text('Home'),
+                   icon: SvgPicture.asset(
+                     'assets/Home Black color.svg',
+                   ),
                ),
                BottomNavigationBarItem(
-                   title: Text("Post2"),
-                   icon: Icon(Icons.ten_k)
+                   title: Text('Upload'),
+                   icon: Icon(
+                     Icons.add_circle_outlined,
+                     size: 48.r,
+                     color : loginButtonColor,
+                   )
                )
              ],
            ),
          ),
       viewModelBuilder:() => HomeViewModel(),
     );
+  }
+
+  Widget getViewForIndex(int index){
+    switch (index){
+      case 0:
+        return Home1View();
+      case 1:
+        return UploadView();
+      default :
+        return Home1View();
+    }
   }
 }
