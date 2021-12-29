@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked/stacked.dart';
+import 'package:test_technique/helper.dart';
 import 'package:test_technique/ui/views/upload/upload_viewmodel.dart';
 
 
@@ -13,13 +15,67 @@ class UploadView extends StatelessWidget {
 
     return ViewModelBuilder<UploadViewModel>.reactive(
          builder: (context,model,child) => Scaffold(
-             body: Container(
-               width: MediaQuery.of(context).size.width,
-               height: MediaQuery.of(context).size.height,
-               child: Center(
-                 child: Text("Upload ..."),
+           appBar: AppBar(
+             title: Text(model.uploadVideo,style: nameStyle,),
+             backgroundColor: bottonNavBarColor,
+             leading: IconButton(
+               color: Colors.black,
+               onPressed: () {
+                 Navigator.pop(context);
+               },
+               icon: Icon(Icons.arrow_back),
+             ),
+           ),
+             body: Padding(
+               padding:  EdgeInsets.only(top: 20.h,right: 20.w,left: 20.w),
+               child: Column(
+                 children: [
+                   Text(model.videoTitle, style: TextStyle(fontWeight: FontWeight.bold),),
+                   TextField(
+                       decoration: InputDecoration(
+                         filled: true,
+                         fillColor: textFieldBgColor,
+                         enabledBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.all(
+                                 Radius.circular(10)
+                             ),
+                             borderSide: BorderSide(
+                                 color: textFieldBgColor,
+                                 width: 2
+                             )
+                         ),
+                         focusedBorder: OutlineInputBorder(
+                             borderRadius: BorderRadius.all(
+                                 Radius.circular(10)
+                             ),
+                             borderSide: BorderSide(
+                                 color: textFieldBgColor,
+                                 width: 2
+                             )
+                         ),
+                           labelText: model.videoName,
+                       )
+                   ),
+                   TextButton(
+                     style: TextButton.styleFrom(
+                       backgroundColor: loginButtonColor,
+                       fixedSize: Size(340.w, 55.h),
+                       textStyle: const TextStyle(fontSize: 20),
+                     ),
+                     onPressed: () {
+                       /*
+                       Navigator.push(
+                         context,
+                         CupertinoPageRoute(builder: (context) => HomeView()),
+                       );
+                       */
+
+                     },
+                     child: Text(model.upload,style: normalTextStyle,),
+                   )
+                 ],
                ),
-             )
+             ) 
          ),
         viewModelBuilder:() => UploadViewModel(),
 

@@ -9,3 +9,4 @@ const Color bgAppColor = Color.fromRGBO(25, 88, 96, 1);
 const Color unselectedButtonColor = Color.fromRGBO(112, 112, 112, 1);
 const Color loginButtonColor = Color.fromRGBO(19, 65, 71, 1);
 const Color bottonNavBarColor = Color.fromRGBO(255 , 255 , 255, 1);
+const Color textFieldBgColor = Color.fromRGBO(242 , 244 , 247, 1);
