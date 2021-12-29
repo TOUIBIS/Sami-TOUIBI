@@ -12,11 +12,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
     return ScreenUtilInit(
       designSize: Size(414, 896),
       minTextAdapt: true,
       builder: () => MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Test Technique',
+        theme: ThemeData(
+          textTheme: TextTheme(
+              button: TextStyle(fontSize: 45.sp)
+          ),
+        ),
 
         // Construct the StackedRouter and set the onGenerateRoute function
         onGenerateRoute: StackedRouter().onGenerateRoute,

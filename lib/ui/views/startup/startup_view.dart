@@ -27,15 +27,15 @@ class StartupView extends StatelessWidget {
                      Row(
                        children: [
                          TextButton(
-                            child: Text(login,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.sp,color: Colors.white),),
+                            child: Text(model.login,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.sp,color: Colors.white),),
                              onPressed: (){
 
                             }),
                          SizedBox(
-                           width: 30,
+                           width: 30.w,
                          ),
                          TextButton(
-                             child: Text(signUp,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.sp,color:unselectedButtonColor),),
+                             child: Text(model.signUp,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.sp,color:unselectedButtonColor),),
                              onPressed: (){
 
                              })
@@ -55,7 +55,7 @@ class StartupView extends StatelessWidget {
                        'assets/Login.svg',
                      ),
                      SizedBox(height: 10.h,),
-                     Text(loginTxt,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28.sp,color: Colors.white),),
+                     Text(model.loginTxt,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28.sp,color: Colors.white),),
                      SizedBox(height: 20.h,),
                       TextField(
                         controller: emailController,
@@ -71,16 +71,17 @@ class StartupView extends StatelessWidget {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.white, width: 1.0.w),
                             ),
-                          labelText: 'EMAIL',
+                          labelText: model.email,
                           fillColor: Colors.white,
                           focusColor: Colors.white,
-                          hintText: 'example@nomail.com',
+                          hintText: model.emailExp,
                           hintStyle: TextStyle(fontWeight: FontWeight.w400,fontSize: 15.sp,color: Colors.white)
                         )
                       ),
-                     SizedBox(height: 10,),
+                     SizedBox(height: 10.h,),
 
                      TextField(
+                         obscureText: true,
                          controller: passwordController,
 
                          decoration: InputDecoration(
@@ -95,45 +96,45 @@ class StartupView extends StatelessWidget {
                            ),
 
                              border: OutlineInputBorder(
-                               borderSide: BorderSide(color: Colors.white, width: 1.0),
+                               borderSide: BorderSide(color: Colors.white, width: 1.0.w),
                              ),
 
                              enabledBorder: OutlineInputBorder(
-                               borderSide: BorderSide(color: Colors.white, width: 1.0),
+                               borderSide: BorderSide(color: Colors.white, width: 1.0.w),
                              ),
                              focusedBorder: OutlineInputBorder(
-                               borderSide: BorderSide(color: Colors.white, width: 1.0),
+                               borderSide: BorderSide(color: Colors.white, width: 1.0.w),
                              ),
-                             labelText: 'PASSWORD',
+                             labelText: model.pwd,
                              fillColor: Colors.white,
                              focusColor: Colors.white,
                              hintStyle: normalTextStyle
                          )
                      ),
-                     SizedBox(height: 10,),
+                     SizedBox(height: 10.h,),
                      Row(
                        mainAxisAlignment: MainAxisAlignment.end,
                        children: [
-                         Text('Forgot Password?',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                         Text(model.frgtPwd,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                        ],
-                     ),
-                     SizedBox(height: 10,),
-                     TextButton(
-                       style: TextButton.styleFrom(
-                         backgroundColor: loginButtonColor,
-                         fixedSize: Size(340, 55),
-                         textStyle: const TextStyle(fontSize: 20),
-                       ),
-                       onPressed: () {
-
-                       },
-                       child: const Text(login,style: normalTextStyle,),
                      ),
                      SizedBox(height: 10.h,),
                      TextButton(
                        style: TextButton.styleFrom(
                          backgroundColor: loginButtonColor,
-                         fixedSize: Size(340, 55),
+                         fixedSize: Size(340.w, 55.h),
+                         textStyle: const TextStyle(fontSize: 20),
+                       ),
+                       onPressed: () {
+
+                       },
+                       child: Text(model.login,style: normalTextStyle,),
+                     ),
+                     SizedBox(height: 10.h,),
+                     TextButton(
+                       style: TextButton.styleFrom(
+                         backgroundColor: loginButtonColor,
+                         fixedSize: Size(340.w, 55.h),
                          textStyle: const TextStyle(fontSize: 20),
                        ),
                        onPressed: () {
@@ -145,8 +146,8 @@ class StartupView extends StatelessWidget {
                            SvgPicture.asset(
                              'assets/google.svg',
                            ),
-                           SizedBox(width: 10,),
-                           const Text(loginWithGoogle,style: normalTextStyle,),
+                           SizedBox(width: 10.w,),
+                           Text(model.loginWithGoogle,style: normalTextStyle,),
                          ],
                        ),
                      )
