@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:test_technique/helper.dart';
-import 'package:test_technique/ui/views/home/home_view.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:test_technique/ui/views/startup/startup_viewmodel.dart';
 
 class StartupView extends StatelessWidget {
@@ -20,14 +20,14 @@ class StartupView extends StatelessWidget {
                child: Container(
                  width: MediaQuery.of(context).size.width,
                  height: MediaQuery.of(context).size.height,
-                 padding: EdgeInsets.only(top: 30,left: 20,right: 20),
+                 padding: EdgeInsets.only(top: 30.h,left: 20.w,right: 20.w),
                  color: bgAppColor,
                  child: Column(
                    children: [
                      Row(
                        children: [
                          TextButton(
-                            child: Text(login,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white),),
+                            child: Text(login,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.sp,color: Colors.white),),
                              onPressed: (){
 
                             }),
@@ -35,7 +35,7 @@ class StartupView extends StatelessWidget {
                            width: 30,
                          ),
                          TextButton(
-                             child: Text(signUp,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color:unselectedButtonColor),),
+                             child: Text(signUp,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.sp,color:unselectedButtonColor),),
                              onPressed: (){
 
                              })
@@ -54,28 +54,28 @@ class StartupView extends StatelessWidget {
                      SvgPicture.asset(
                        'assets/Login.svg',
                      ),
-                     SizedBox(height: 10,),
-                     Text(loginTxt,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28,color: Colors.white),),
-                     SizedBox(height: 20,),
+                     SizedBox(height: 10.h,),
+                     Text(loginTxt,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28.sp,color: Colors.white),),
+                     SizedBox(height: 20.h,),
                       TextField(
                         controller: emailController,
                         decoration: InputDecoration(
 
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white, width: 1.0),
+                            borderSide: BorderSide(color: Colors.white, width: 1.0.w),
                           ),
 
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white, width: 1.0),
+                              borderSide: BorderSide(color: Colors.white, width: 1.0.w),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white, width: 1.0),
+                              borderSide: BorderSide(color: Colors.white, width: 1.0.w),
                             ),
                           labelText: 'EMAIL',
                           fillColor: Colors.white,
                           focusColor: Colors.white,
                           hintText: 'example@nomail.com',
-                          hintStyle: TextStyle(fontWeight: FontWeight.w400,fontSize: 15,color: Colors.white)
+                          hintStyle: TextStyle(fontWeight: FontWeight.w400,fontSize: 15.sp,color: Colors.white)
                         )
                       ),
                      SizedBox(height: 10,),
@@ -129,7 +129,7 @@ class StartupView extends StatelessWidget {
                        },
                        child: const Text(login,style: normalTextStyle,),
                      ),
-                     SizedBox(height: 10,),
+                     SizedBox(height: 10.h,),
                      TextButton(
                        style: TextButton.styleFrom(
                          backgroundColor: loginButtonColor,
