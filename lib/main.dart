@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
               button: TextStyle(fontSize: 45.sp)
           ),
         ),
-
         // Construct the StackedRouter and set the onGenerateRoute function
         onGenerateRoute: StackedRouter().onGenerateRoute,
       ),

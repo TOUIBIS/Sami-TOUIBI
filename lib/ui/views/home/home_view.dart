@@ -5,7 +5,6 @@ import 'package:stacked/stacked.dart';
 import 'package:test_technique/helper.dart';
 import 'package:test_technique/ui/views/home/home_viewmodel.dart';
 import 'package:test_technique/ui/views/home1/home1_view.dart';
-import 'package:test_technique/ui/views/signup/signup_view.dart';
 import 'package:test_technique/ui/views/upload/upload_view.dart';
 
 class HomeView extends StatelessWidget {

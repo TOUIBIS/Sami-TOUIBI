@@ -214,15 +214,12 @@ class SignUpView extends StatelessWidget {
                        },
                        child: Text(model.save,style: normalTextStyle,),
                      )
-
-
                    ],
                  ),
                ),
              )
          ),
         viewModelBuilder:() => SignUpViewModel(),
-
     );
   }
 }

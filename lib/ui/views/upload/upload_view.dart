@@ -102,13 +102,6 @@ class UploadView extends StatelessWidget {
                        textStyle: const TextStyle(fontSize: 20),
                      ),
                      onPressed: () {
-                       /*
-                       Navigator.push(
-                         context,
-                         CupertinoPageRoute(builder: (context) => HomeView()),
-                       );
-                       */
-
                      },
                      child: Text(model.upload,style: normalTextStyle,),
                    )
@@ -117,7 +110,6 @@ class UploadView extends StatelessWidget {
              ) 
          ),
         viewModelBuilder:() => UploadViewModel(),
-
     );
   }
 }
