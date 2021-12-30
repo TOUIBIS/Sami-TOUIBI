@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:test_technique/helper.dart';
+import 'package:test_technique/models/post.dart';
 import 'package:test_technique/ui/views/home1/home1_viewmodel.dart';
+import 'package:test_technique/ui/widgets/post_widget.dart';
 
 
 class Home1View extends StatelessWidget {
@@ -12,7 +14,8 @@ class Home1View extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    DateTime now = DateTime.utc(2021,5,5,5,5,5);
+    Post post1 = new Post('Samy TOUIBI',now,"video Name","Lorem ipsum dolor sit amet, consetetur sadipscing  😍");
 
     return ViewModelBuilder<Home1ViewModel>.reactive(
          builder: (context,model,child) => Scaffold(
@@ -34,11 +37,9 @@ class Home1View extends StatelessWidget {
                          ),
                          SizedBox(width: 10.w,),
                          Column(
-
                            children: [
                               Text(model.name,style: nameStyle,),
                               Text(model.desc,style: descStyle,),
-
                            ],
                          ),
                          SvgPicture.asset(
@@ -48,7 +49,8 @@ class Home1View extends StatelessWidget {
                      ),
                    ),
                  ),
-                 Text(model.content,style: descStyle,)
+                 Text(model.content,style: descStyle,),
+                 PostWidget(post: post1,)
                ],
              )
          ),

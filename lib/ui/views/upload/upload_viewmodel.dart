@@ -12,6 +12,9 @@ class UploadViewModel extends BaseViewModel{
   final String _videoName = 'Video Name';
   String get videoName => _videoName;
 
+  final String _desc = 'Description';
+  String get desc => _desc;
+
   final String _upload = 'Upload';
   String get upload => _upload;
 

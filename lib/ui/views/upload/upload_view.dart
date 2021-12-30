@@ -30,7 +30,11 @@ class UploadView extends StatelessWidget {
                padding:  EdgeInsets.only(top: 20.h,right: 20.w,left: 20.w),
                child: Column(
                  children: [
-                   Text(model.videoTitle, style: TextStyle(fontWeight: FontWeight.bold),),
+                   Row(
+                     children: [
+                       Text(model.videoTitle, style: TextStyle(fontWeight: FontWeight.bold),),
+                     ],
+                   ),
                    TextField(
                        decoration: InputDecoration(
                          filled: true,
@@ -53,13 +57,48 @@ class UploadView extends StatelessWidget {
                                  width: 2
                              )
                          ),
-                           labelText: model.videoName,
+
                        )
                    ),
+                   SizedBox(height: 10.h,),
+                   Row(
+                     children: [
+                       Text(model.desc, style: TextStyle(fontWeight: FontWeight.bold),),
+                     ],
+                   ),
+                   TextField(
+                     keyboardType: TextInputType.multiline,
+                     textCapitalization: TextCapitalization.sentences,
+                     maxLines: null,
+                     decoration: InputDecoration(
+                       filled: true,
+                       fillColor: textFieldBgColor,
+                       enabledBorder: OutlineInputBorder(
+                           borderRadius: BorderRadius.all(
+                               Radius.circular(10)
+                           ),
+                           borderSide: BorderSide(
+                               color: textFieldBgColor,
+                               width: 2
+                           )
+                       ),
+                       focusedBorder: OutlineInputBorder(
+                           borderRadius: BorderRadius.all(
+                               Radius.circular(10)
+                           ),
+                           borderSide: BorderSide(
+                               color: textFieldBgColor,
+                               width: 2
+                           )
+                       ),
+
+                     ),
+                   ),
+                   SizedBox(height: 30.h,),
                    TextButton(
                      style: TextButton.styleFrom(
                        backgroundColor: loginButtonColor,
-                       fixedSize: Size(340.w, 55.h),
+                       fixedSize: Size(181.w, 53.h),
                        textStyle: const TextStyle(fontSize: 20),
                      ),
                      onPressed: () {
